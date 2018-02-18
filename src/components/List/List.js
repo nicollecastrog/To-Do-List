@@ -12,7 +12,18 @@ class List extends Component {
     }
 
     toggleTask = (taskIndex) => {
-      console.log(`toggle task of index: ${taskIndex}`);
+      let newTaskArr = [...this.state.tasks];
+
+      const task = newTaskArr[taskIndex];
+      const updatedTask = {
+        title: task.title,
+        key: Date.now(),
+        done: !task.done
+      }
+      console.log("old task:");
+      console.log(task);
+      console.log("new task");
+      console.log(updatedTask);
     }
 
     addTask = (formSubmitEvent) => {
