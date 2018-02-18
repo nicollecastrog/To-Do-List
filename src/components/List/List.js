@@ -12,6 +12,8 @@ class List extends Component {
     }
 
     toggleTask = (taskIndex) => {
+      console.log("old task array:");
+      console.log(this.state.tasks);
       let newTaskArr = [...this.state.tasks];
 
       const task = newTaskArr[taskIndex];
@@ -20,10 +22,14 @@ class List extends Component {
         key: Date.now(),
         done: !task.done
       }
-      console.log("old task:");
-      console.log(task);
-      console.log("new task");
-      console.log(updatedTask);
+
+      newTaskArr.splice(taskIndex, 1, updatedTask) // at the taskIndex position in the array, delete the 1 item currently there, and add updatedTask in its place
+      console.log("new task array");
+      console.log(newTaskArr);
+
+      this.setState({
+        tasks: newTaskArr
+      })
     }
 
     addTask = (formSubmitEvent) => {

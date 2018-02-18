@@ -4,7 +4,7 @@ class IndvTasks extends Component {
     printTask = (todo, index) => {
       return (
         <div key={todo.key}>
-          <input type="checkbox" onChange={() => this.props.toggleHandler(index)}/>
+          <input type="checkbox" checked={todo.done} onChange={() => this.props.toggleHandler(index)}/>
           <label key={todo.key}>{todo.title}</label>
         </div>
       );
