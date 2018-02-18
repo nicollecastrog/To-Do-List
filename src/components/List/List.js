@@ -11,6 +11,10 @@ class List extends Component {
       };
     }
 
+    toggleTask = (taskIndex) => {
+      console.log("toggle task");
+    }
+
     addTask = (formSubmitEvent) => {
       formSubmitEvent.preventDefault(); // blocking form's default behaviour of refreshing the page upon submiting the form
       let newTaskArr = [...this.state.tasks]; // using array spread syntax to create a new array where all added tasks will be added
@@ -18,7 +22,7 @@ class List extends Component {
       if (this._userInput.value.trim() !== "") { // conditional to check whether input field has string; use trim to remove whitespace at beginning and end
         const newTask = {
           title: this._userInput.value,
-          key: Date.now,
+          key: Date.now(), // good to make unique keys: the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC
           done: false
         };
 
@@ -42,7 +46,7 @@ class List extends Component {
               <button type="submit">Add Task</button>
             </form>
           </div>
-          <IndvTasks tasks={this.state.tasks}/>
+          <IndvTasks tasks={this.state.tasks} toggleHandler={this.toggleTask}/>
         </div>
       );
     }
