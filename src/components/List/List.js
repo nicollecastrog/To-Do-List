@@ -12,7 +12,7 @@ class List extends Component {
     }
 
     toggleTask = (taskIndex) => {
-      console.log("toggle task");
+      console.log(`toggle task of index: ${taskIndex}`);
     }
 
     addTask = (formSubmitEvent) => {
